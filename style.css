@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --left-bg-color: rgba(87, 84, 236, 0.7);
+    --right-bg-color: rgba(43, 43, 43, 0.8);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 4rem;
+    color: #fff;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px #fff solid;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    transition: all 0.6s ease;
+}
+
+.split.left a:hover {
+    background-color: rgba(87, 84, 236, 1);
+    border: none;
+}
+
+.split.right a:hover {
+    background-color: rgb(167, 39, 39);
+    border: none;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.split {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+}
+
+.split.left {
+    left: 0;
+    background: url('./ps.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.split.left::before {
+    content: '';
+    position: absolute;
+    background: var(--left-bg-color);
+    width: 100%;
+    height: 100%;
+
+}
+
+.split.right::before {
+    content: '';
+    position: absolute;
+    background: var(--right-bg-color);
+    width: 100%;
+    height: 100%;
+}
+
+.split.right {
+    right: 0;
+    background: url('./xbox.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.split.left,
+.split.right,
+.split.right::before,
+.split.left::before {
+    transition: all 1s ease-in-out;
+}
+
+.container.hover-left .split.left {
+    width: 75%;
+}
+
+.container.hover-left .split.right {
+    width: 25%;
+}
+
+.container.hover-right .split.right {
+    width: 75%;
+}
+
+.container.hover-right .split.left {
+    width: 25%;
+}
